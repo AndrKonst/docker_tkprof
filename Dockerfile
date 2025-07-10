@@ -13,7 +13,7 @@ ENV LD_LIBRARY_PATH=/usr/lib/oracle/${release}.${update}/client64/lib:$LD_LIBRAR
 
 # Выдача прав
 RUN chmod -R a+rx /usr/lib/oracle/${release}.${update}/client64/lib && \
-    chmod a+rx /usr/lib/oracle/19.26/client64/bin/tkprof
+    chmod a+rx /usr/lib/oracle/${release}.${update}/client64/bin/tkprof
 
 WORKDIR /trace
 ENTRYPOINT ["tkprof"]
