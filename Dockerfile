@@ -5,13 +5,15 @@ ARG update=26
 
 USER root
 
-# Копирование папки bin c tkprof внутрь образа
+# Copy files
 COPY bin /usr/lib/oracle/${release}.${update}/client64/bin
 COPY lib /usr/lib/oracle/${release}.${update}/client64/lib
+
+# Fill environment variables
 ENV PATH=/usr/lib/oracle/${release}.${update}/client64/bin:$PATH
 ENV LD_LIBRARY_PATH=/usr/lib/oracle/${release}.${update}/client64/lib:$LD_LIBRARY_PATH
 
-# Выдача прав
+# Grant exec rights
 RUN chmod -R a+rx /usr/lib/oracle/${release}.${update}/client64/lib && \
     chmod a+rx /usr/lib/oracle/${release}.${update}/client64/bin/tkprof
 
